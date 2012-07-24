@@ -1,6 +1,7 @@
 #include "notepad.h"
 #include<QDebug>
 
+//Constructor
 Notepad::Notepad()
 {
     hLayout=new QHBoxLayout;
