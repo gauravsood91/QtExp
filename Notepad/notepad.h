@@ -7,6 +7,9 @@
 #include<QHBoxLayout>
 #include<QVBoxLayout>
 #include<QTextEdit>
+#include<QFile>
+#include<QTextStream>
+#include<QFileDialog>
 
 class Notepad:public QMainWindow
 {
@@ -17,20 +20,35 @@ public:
 private:
     QHBoxLayout *hLayout;
     QVBoxLayout *vLayout;
+
     QMenu *fileMenu;
     QMenu *editMenu;
+    QMenu *helpMenu;
     QTextEdit *editArea;
+
+    QString fileName;
+
+
     void createMenus();
     void createActions();
 
     QAction *newAction;
+    QAction *openAction;
     QAction *quitAction;
     QAction *saveAction;
+    QAction *saveAsAction;
+    QAction *copyAction;
+    QAction *cutAction;
+    QAction *pasteAction;
 private slots:
     void newFile();
     void quit();
     void save();
     void open();
+    void saveAs();
+    void copy();
+    void cut();
+    void paste();
 };
 
 #endif // NOTEPAD_H
