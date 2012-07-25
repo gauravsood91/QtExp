@@ -1,7 +1,6 @@
 #include "notepad.h"
 #include<QDebug>
 
-//Constructor
 Notepad::Notepad()
 {
     hLayout=new QHBoxLayout;
@@ -9,9 +8,11 @@ Notepad::Notepad()
 
     createActions();
     createMenus();
+    createToolBar();
     editArea=new QTextEdit;
 
     setCentralWidget(editArea);
+
 
     show();
 }
@@ -49,6 +50,20 @@ void Notepad::createActions()
     pasteAction->setShortcut(QKeySequence::Paste);
     connect(pasteAction,SIGNAL(triggered()),this,SLOT(paste()));
 }
+void Notepad::createToolBar()
+{
+    toolBar=addToolBar(tr("ToolBar"));
+    toolBar->addAction(newAction);
+    toolBar->addAction(newAction);
+    toolBar->addAction(openAction);
+    toolBar->addAction(saveAction);
+    toolBar->addAction(saveAsAction);
+    toolBar->addAction(quitAction);
+    toolBar->addAction(cutAction);
+    toolBar->addAction(copyAction);
+    toolBar->addAction(pasteAction);
+
+}
 
 void Notepad::createMenus()
 {
@@ -63,9 +78,6 @@ void Notepad::createMenus()
     editMenu->addAction(cutAction);
     editMenu->addAction(copyAction);
     editMenu->addAction(pasteAction);
-
-    helpMenu=menuBar()->addMenu(tr("Help"));
-
 }
 void Notepad::newFile()
 {
@@ -116,13 +128,14 @@ void Notepad::quit()
 }
 void Notepad::copy()
 {
+    editArea->copy();
 
 }
 void Notepad::paste()
 {
-
+    editArea->paste();
 }
 void Notepad::cut()
 {
-
+    editArea->cut();
 }

@@ -10,6 +10,7 @@
 #include<QFile>
 #include<QTextStream>
 #include<QFileDialog>
+#include<QToolBar>
 
 class Notepad:public QMainWindow
 {
@@ -20,6 +21,7 @@ public:
 private:
     QHBoxLayout *hLayout;
     QVBoxLayout *vLayout;
+    QToolBar *toolBar;
 
     QMenu *fileMenu;
     QMenu *editMenu;
@@ -31,6 +33,7 @@ private:
 
     void createMenus();
     void createActions();
+    void createToolBar();
 
     QAction *newAction;
     QAction *openAction;
