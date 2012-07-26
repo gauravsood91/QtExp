@@ -5,14 +5,14 @@ Notepad::Notepad()
 {
     hLayout=new QHBoxLayout;
     vLayout=new QVBoxLayout;
-
     createActions();
     createMenus();
     createToolBar();
     editArea=new QTextEdit;
 
+    showMaximized();
     setCentralWidget(editArea);
-
+    setWindowTitle("Notepad");
 
     show();
 }
